@@ -1,8 +1,167 @@
 <html>
-  <head>
-    <p>PIM</p>
-  </head>
-  <body>
-      <p>测试</p>
-  </body>
+    <head>
+        <title>Quadratic_Element</title>
+        <!-- 引入样式 -->
+        <link rel="stylesheet" href="/css/index.css">
+        <!-- 引入组件库 -->
+        <script src="/js/index.js"></script>
+    </head>
+       <body>
+          <p>测试</p>
+          <el-menu
+    :default-active="activeIndex2"
+    class="el-menu-demo"
+    mode="horizontal"
+    @select="handleSelect"
+    background-color="#545c64"
+    text-color="#fff"
+    active-text-color="#ffd04b"
+  >
+    <el-submenu index="1">
+      <template slot="title">{{$t('m.fed.name')}}</template>
+      <el-submenu index="1-1">
+        <template slot="title">{{$t('m.fed.basics.name')}}</template>
+        <el-menu-item index="1-1-1" @click="redirect('HTML')">HTML</el-menu-item>
+        <el-menu-item index="1-1-2" @click="redirect('XML')">XML</el-menu-item>
+        <el-menu-item index="1-1-3" @click="redirect('JSP')">JSP</el-menu-item>
+        <el-menu-item index="1-1-4" @click="redirect('H5')">HTML 5</el-menu-item>
+        <el-menu-item index="1-1-5" @click="redirect('CSS')">CSS</el-menu-item>
+        <el-menu-item index="1-1-6" @click="redirect('CSS-3')">CSS 3</el-menu-item>
+        <el-menu-item index="1-1-7" @click="redirect('JQuery')">JQuery</el-menu-item>
+      </el-submenu>
+
+      <el-submenu index="1-2">
+        <template slot="title">{{$t('m.fed.framework.name')}}</template>
+        <el-submenu index="1-2-1">
+          <template slot="title">{{$t('m.fed.framework.page_design.name')}}</template>
+          <el-menu-item index="1-2-1-1" @click="redirect('boostrap')">Boostrap</el-menu-item>
+          <el-menu-item index="1-2-1-2" @click="redirect('element-ui')">Element UI</el-menu-item>
+        </el-submenu>
+        <el-submenu index="1-2-2">
+          <template slot="title">{{$t('m.fed.framework.t_fe_s.name')}}</template>
+          <el-menu-item index="1-2-2-1" @click="redirect('vue')">VUE</el-menu-item>
+        </el-submenu>
+      </el-submenu>
+
+      <el-submenu index="1-1-3">
+        <template slot="title">{{$t('m.fed.development_tool.name')}}</template>
+        <el-menu-item index="1-1-3-1" @click="redirect('HBuilder')">HBuilder</el-menu-item>
+        <el-menu-item index="1-1-3-2" @click="redirect('DW')">Adobe Dreamweaver</el-menu-item>
+        <el-menu-item index="1-1-3-3" @click="redirect('vs_code')">Visual Studio Code</el-menu-item>
+      </el-submenu>
+    </el-submenu>
+
+    <el-submenu index="2">
+      <template slot="title">{{$t('m.bed.name')}}</template>
+      <el-submenu index="2-1">
+        <template slot="title">{{$t('m.bed.basics.name')}}</template>
+        <el-menu-item index="2-1-1" @click="redirect('C')">C</el-menu-item>
+        <el-menu-item index="2-1-2" @click="redirect('C++')">C++</el-menu-item>
+        <el-menu-item index="2-1-3" @click="redirect('C#')">C#</el-menu-item>
+        <el-menu-item index="2-1-4" @click="redirect('.NET')">.NET</el-menu-item>
+        <el-menu-item index="2-1-5" @click="redirect('JAVA')">JAVA</el-menu-item>
+        <el-menu-item index="2-1-6" @click="redirect('DOS')">DOS Command</el-menu-item>
+      </el-submenu>
+
+      <el-submenu index="2-2">
+        <template slot="title">{{$t('m.bed.framework.name')}}</template>
+        <el-menu-item index="2-2-1" @click="redirect('Maven')">Maven</el-menu-item>
+        <el-menu-item index="2-2-2" @click="redirect('Struts')">Struts</el-menu-item>
+        <el-menu-item index="2-2-3" @click="redirect('Struts-2')">Struts2</el-menu-item>
+        <el-menu-item index="2-2-4" @click="redirect('Spring')">Spring</el-menu-item>
+        <el-menu-item index="2-2-5" @click="redirect('MyBatis')">MyBatis</el-menu-item>
+        <el-menu-item index="2-2-6" @click="redirect('spring_mvc')">Spring MVC</el-menu-item>
+        <el-menu-item index="2-2-7" @click="redirect('spring_boot')">Spring Boot</el-menu-item>
+      </el-submenu>
+
+      <el-submenu index="2-3">
+        <template slot="title">{{$t('m.bed.system.name')}}</template>
+        <el-menu-item index="2-3-1" @click="redirect('Linux')">Linux</el-menu-item>
+        <el-menu-item index="2-3-2" @click="redirect('Uinux')">Uinux</el-menu-item>
+        <el-menu-item index="2-3-3" @click="redirect('winxp')">Windows XP</el-menu-item>
+        <el-menu-item index="2-3-4" @click="redirect('win7')">Windows 7</el-menu-item>
+        <el-menu-item index="2-3-5" @click="redirect('win8')">Windows 8</el-menu-item>
+        <el-menu-item index="2-3-6" @click="redirect('win10')">Windows 10</el-menu-item>
+      </el-submenu>
+
+      <el-submenu index="2-4">
+        <template slot="title">{{$t('m.bed.database.name')}}</template>
+        <el-submenu index="2-4-1">
+          <template slot="title">{{$t('m.bed.database.sql.name')}}</template>
+          <el-menu-item index="2-4-1-1" @click="redirect('Foxtable')">Foxtable</el-menu-item>
+          <el-menu-item index="2-4-1-2" @click="redirect('SyBase')">SyBase</el-menu-item>
+          <el-menu-item index="2-4-1-3" @click="redirect('MySQL')">MySQL</el-menu-item>
+          <el-menu-item index="2-4-1-4" @click="redirect('SQLServer')">SQLServer</el-menu-item>
+          <el-menu-item index="2-4-1-5" @click="redirect('ORACLE')">ORACLE</el-menu-item>
+        </el-submenu>
+
+        <el-submenu index="2-4-2">
+          <template slot="title">{{$t('m.bed.database.nosql.name')}}</template>
+          <el-menu-item index="2-4-2-1" @click="redirect('Redis')">Redis</el-menu-item>
+          <el-menu-item index="2-4-2-2" @click="redirect('MongDB')">MongDB</el-menu-item>
+        </el-submenu>
+
+        <el-submenu index="2-4-3">
+          <template slot="title">{{$t('m.bed.database.development_tool.name')}}</template>
+          <el-menu-item index="2-4-3-1" @click="redirect('NaviCat')">NaviCat</el-menu-item>
+          <el-menu-item index="2-4-3-2" @click="redirect('PowerDesigner')">PowerDesigner</el-menu-item>
+          <el-menu-item index="2-4-3-3" @click="redirect('PLSQL')">PL/SQL Developer (PLSQL)</el-menu-item>
+          <el-menu-item
+            index="2-4-3-4"
+            @click="redirect('SSMS')"
+          >SQL Server Management Studio (SSMS)</el-menu-item>
+        </el-submenu>
+      </el-submenu>
+
+      <el-submenu index="2-5">
+        <template slot="title">{{$t('m.bed.development_tool.name')}}</template>
+        <el-menu-item index="2-5-1" @click="redirect('Eclipse')">Eclipse</el-menu-item>
+        <el-menu-item index="2-5-2" @click="redirect('MyEclipse')">MyEclipse</el-menu-item>
+        <el-menu-item index="2-5-3" @click="redirect('IDEA')">IntelliJ IDEA</el-menu-item>
+      </el-submenu>
+
+      <el-submenu index="2-6">
+        <template slot="title">{{$t('m.bed.t_p_o_i.name')}}</template>
+        <el-menu-item index="2-6-1" @click="redirect('QQ')">QQ</el-menu-item>
+        <el-menu-item index="2-6-2" @click="redirect('Map')">{{$t('m.bed.t_p_o_i.map')}}</el-menu-item>
+        <el-menu-item index="2-6-3" @click="redirect('WeChat')">{{$t('m.bed.t_p_o_i.wechat')}}</el-menu-item>
+        <el-menu-item index="2-6-4" @click="redirect('Alipay')">{{$t('m.bed.t_p_o_i.alipay')}}</el-menu-item>
+        <el-menu-item index="2-6-5" @click="redirect('Weather')">{{$t('m.bed.t_p_o_i.weather')}}</el-menu-item>
+        <el-menu-item index="2-6-6" @click="redirect('Postbox')">{{$t('m.bed.t_p_o_i.postbox')}}</el-menu-item>
+        <el-menu-item index="2-6-7" @click="redirect('Phone Number')">{{$t('m.bed.t_p_o_i.c_p_n')}}</el-menu-item>
+        <el-menu-item index="2-6-8" @click="redirect('SMS')">{{$t('m.bed.t_p_o_i.sms')}}</el-menu-item>
+      </el-submenu>
+    </el-submenu>
+
+    <el-submenu index="3">
+      <template slot="title">{{$t('m.q_e.name')}}</template>
+      <el-menu-item index="3-1" @click="redirect('AcFun')">{{$t('m.q_e.a')}}</el-menu-item>
+      <el-menu-item index="3-2" @click="redirect('bilibili')">{{$t('m.q_e.b')}}</el-menu-item>
+      <el-menu-item index="3-3" @click="redirect('CosZ')">{{$t('m.q_e.c')}}</el-menu-item>
+      <el-menu-item index="3-4" @click="redirect('dilidili')">{{$t('m.q_e.d')}}</el-menu-item>
+      <el-menu-item index="3-5" @click="redirect('E-hantai')">{{$t('m.q_e.e')}}</el-menu-item>
+      <el-menu-item index="3-6" @click="redirect('FAKKU')">{{$t('m.q_e.f')}}</el-menu-item>
+      <el-menu-item index="3-7" @click="redirect('Gelbooru')">{{$t('m.q_e.g')}}</el-menu-item>
+      <el-menu-item index="3-8" @click="redirect('MissEvan')">{{$t('m.q_e.m')}}</el-menu-item>
+      <el-menu-item index="3-9" @click="redirect('KonaChan')">{{$t('m.q_e.k')}}</el-menu-item>
+      <el-menu-item index="3-10" @click="redirect('Pzhan')">{{$t('m.q_e.p')}}</el-menu-item>
+    </el-submenu>
+
+    <el-menu-item index="4" disabled>{{$t('m.being_developed.name')}}</el-menu-item>
+
+    <el-menu-item index="5">{{survival_time}}</el-menu-item>
+    <el-menu-item index="6">{{countdown_to_survival}}</el-menu-item>
+    <el-menu-item index="7">{{this_time}}</el-menu-item>
+
+    <el-menu-item index="9">
+      <el-submenu index="9-1">
+        <template slot="title">{{$t('m.Language.name')}}</template>
+        <el-menu-item index="9-1-1" @click="changeLangEvent('zh-CN')">{{$t('m.Language.chinese')}}</el-menu-item>
+        <el-menu-item index="9-1-2" @click="changeLangEvent('en-US')">{{$t('m.Language.english')}}</el-menu-item>
+      </el-submenu>
+    </el-menu-item>
+
+    <el-menu-item index="10" disabled>{{$t('m.i_t_c.name')}}</el-menu-item>
+  </el-menu>
+      </body>
 </html>
